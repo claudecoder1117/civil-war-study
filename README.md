@@ -2,7 +2,7 @@
 
 A single-page study app for a U.S. History test covering **Sectionalism (Unit 10)** and the **Civil War (Unit 11)**.
 
-**▶ Live site:** _(GitHub Pages link appears here once the repo is published)_
+**▶ Live site:** **https://claudecoder1117.github.io/civil-war-study/**
 
 ## Study modes
 - 🃏 **Flashcards** — 33 key terms with definitions and why they mattered
