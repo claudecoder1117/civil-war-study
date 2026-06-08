@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sectionalism &amp; the Civil War — Study Hub</title>
+<style>
+  :root{
+    --navy:#16314f; --navy2:#1f4068; --blue:#3a6ea5; --sky:#cfe2f3;
+    --red:#b3343c; --gold:#e0a73e; --cream:#f7f4ec; --paper:#ffffff;
+    --ink:#1b2430; --muted:#5d6b7a; --line:#e4e0d6; --good:#2f8f5b; --bad:#c1452f;
+    --shadow:0 6px 22px rgba(20,30,50,.10); --shadow-sm:0 2px 8px rgba(20,30,50,.08);
+    --r:16px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink); background:var(--cream); line-height:1.5; -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:Georgia,"Times New Roman",serif; line-height:1.2; margin:0 0 .4em}
+  a{color:var(--blue)}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 18px}
+
+  /* Header */
+  header.app{
+    background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 60%,var(--blue) 130%);
+    color:#fff; padding:22px 0 14px; box-shadow:var(--shadow); position:relative; overflow:hidden;
+  }
+  header.app::after{content:"";position:absolute;inset:0;background:
+    repeating-linear-gradient(90deg,rgba(255,255,255,.04) 0 2px,transparent 2px 22px);pointer-events:none}
+  .head-row{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  header.app h1{color:#fff;font-size:clamp(20px,3.4vw,30px);margin:0;letter-spacing:.2px}
+  header.app .sub{color:var(--sky);font-size:14px;margin-top:2px}
+  .badge{
+    background:var(--gold);color:#3a2a06;font-weight:700;border-radius:999px;
+    padding:8px 14px;font-size:13px;display:inline-flex;gap:8px;align-items:center;white-space:nowrap;
+    box-shadow:var(--shadow-sm)
+  }
+  .badge b{font-size:14px}
+
+  /* Nav */
+  nav.tabs{background:var(--paper);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;box-shadow:var(--shadow-sm)}
+  .tabrow{display:flex;gap:6px;overflow-x:auto;padding:8px 0;scrollbar-width:thin}
+  .tab{
+    border:1px solid transparent;background:transparent;color:var(--muted);
+    padding:9px 14px;border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;
+    display:inline-flex;align-items:center;gap:7px;transition:.15s;
+  }
+  .tab:hover{background:var(--sky);color:var(--navy)}
+  .tab.active{background:var(--navy);color:#fff}
+  .tab .ico{font-size:15px}
+
+  main{padding:22px 0 60px}
+  .view{display:none;animation:fade .25s ease}
+  .view.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+  /* Generic card */
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow-sm);padding:20px}
+  .card + .card{margin-top:16px}
+  .grid{display:grid;gap:16px}
+  @media(min-width:680px){.grid.cols2{grid-template-columns:1fr 1fr}.grid.cols3{grid-template-columns:1fr 1fr 1fr}}
+
+  .btn{
+    border:none;border-radius:12px;padding:11px 18px;font-size:15px;font-weight:700;cursor:pointer;
+    background:var(--navy);color:#fff;transition:.15s;box-shadow:var(--shadow-sm)
+  }
+  .btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
+  .btn:active{transform:none}
+  .btn.alt{background:var(--gold);color:#3a2a06}
+  .btn.ghost{background:#eef1f4;color:var(--navy)}
+  .btn.red{background:var(--red)}
+  .btn.sm{padding:7px 12px;font-size:13px;border-radius:10px}
+  .btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+  .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .spacer{flex:1}
+  .pill{display:inline-block;background:var(--sky);color:var(--navy);font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px}
+  .pill.u11{background:#f3dcc4;color:#7a4a12}
+  .muted{color:var(--muted)}
+  .center{text-align:center}
+
+  /* Home */
+  .hero{display:grid;gap:18px}
+  @media(min-width:760px){.hero{grid-template-columns:1.3fr 1fr}}
+  .mode-card{cursor:pointer;display:flex;gap:14px;align-items:flex-start;transition:.15s;text-align:left}
+  .mode-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--blue)}
+  .mode-card .mi{font-size:28px;line-height:1;flex:none;width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:var(--sky)}
+  .mode-card h3{margin:0 0 3px;font-size:18px}
+  .mode-card p{margin:0;color:var(--muted);font-size:14px}
+  .progress-wrap{height:12px;background:#e9e4d8;border-radius:999px;overflow:hidden}
+  .progress-bar{height:100%;background:linear-gradient(90deg,var(--good),#54b07e);width:0;transition:width .5s}
+  .stat{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px dashed var(--line);font-size:14px}
+  .stat:last-child{border:none}
+  .stat b{font-variant-numeric:tabular-nums}
+
+  /* Flashcards */
+  .flash-stage{perspective:1400px;margin:14px 0}
+  .flash{
+    position:relative;width:100%;min-height:300px;cursor:pointer;
+    transform-style:preserve-3d;transition:transform .5s;
+  }
+  .flash.flipped{transform:rotateY(180deg)}
+  .face{
+    position:absolute;inset:0;backface-visibility:hidden;border-radius:var(--r);
+    padding:26px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
+    box-shadow:var(--shadow);border:1px solid var(--line)
+  }
+  .face.front{background:linear-gradient(160deg,#fff,#f3f6fa)}
+  .face.back{background:linear-gradient(160deg,#fbf7ef,#f7efdd);transform:rotateY(180deg);overflow:auto}
+  .face .term{font-family:Georgia,serif;font-size:clamp(22px,4vw,30px);color:var(--navy);margin:6px 0}
+  .face .hint{position:absolute;bottom:12px;font-size:12px;color:var(--muted)}
+  .face .def{font-size:16px;max-width:640px}
+  .face .why{margin-top:12px;font-size:14px;color:#6a4a14;background:#fff7e6;border:1px solid #f0deb6;border-radius:10px;padding:10px 12px;max-width:640px}
+  .flash-meta{position:absolute;top:12px;left:12px}
+  .deck-bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .counter{font-weight:700;font-variant-numeric:tabular-nums;min-width:64px;text-align:center}
+
+  /* Quiz */
+  .opt{
+    display:block;width:100%;text-align:left;border:1.5px solid var(--line);background:#fff;
+    padding:13px 15px;border-radius:12px;margin:9px 0;font-size:15px;cursor:pointer;transition:.12s
+  }
+  .opt:hover{border-color:var(--blue);background:#f5f9fd}
+  .opt.correct{border-color:var(--good);background:#e8f6ee}
+  .opt.wrong{border-color:var(--bad);background:#fbe9e6}
+  .opt.locked{cursor:default}
+  .q-num{font-size:13px;color:var(--muted);font-weight:700;letter-spacing:.4px;text-transform:uppercase}
+  .q-text{font-size:18px;font-family:Georgia,serif;margin:6px 0 14px}
+  .feedback{margin-top:12px;padding:12px 14px;border-radius:12px;font-size:14px;display:none}
+  .feedback.show{display:block}
+  .feedback.ok{background:#e8f6ee;border:1px solid #bfe3cc}
+  .feedback.no{background:#fbe9e6;border:1px solid #f0c3ba}
+  .scorebar{font-weight:700}
+
+  /* Matching */
+  .match-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .match-col h4{margin:0 0 8px;font-size:13px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted)}
+  .mitem{
+    border:1.5px solid var(--line);background:#fff;border-radius:12px;padding:12px;margin-bottom:10px;cursor:pointer;
+    font-size:14.5px;transition:.12s;user-select:none
+  }
+  .mitem:hover{border-color:var(--blue)}
+  .mitem.sel{border-color:var(--gold);background:#fff8e8;box-shadow:0 0 0 2px var(--gold) inset}
+  .mitem.done{background:#e8f6ee;border-color:var(--good);color:#1e5e3a;cursor:default;opacity:.8}
+  .mitem.flash-bad{animation:shake .35s}
+  @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+
+  /* Timeline */
+  .tl-pool,.tl-line{display:flex;flex-direction:column;gap:9px;margin-top:10px}
+  .tl-item{
+    border:1.5px solid var(--line);background:#fff;border-radius:12px;padding:12px 14px;cursor:pointer;
+    display:flex;align-items:center;gap:12px;transition:.12s;font-size:15px
+  }
+  .tl-item:hover{border-color:var(--blue);background:#f5f9fd}
+  .tl-item .seq{flex:none;width:26px;height:26px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-size:13px;font-weight:700}
+  .tl-item.right{border-color:var(--good);background:#e8f6ee}
+  .tl-item.wrong{border-color:var(--bad);background:#fbe9e6}
+  .tl-item .yr{margin-left:auto;font-weight:700;color:var(--blue);font-variant-numeric:tabular-nums}
+  .tl-empty{color:var(--muted);font-style:italic;padding:8px}
+
+  /* Write / short answer */
+  .wa-q{font-family:Georgia,serif;font-size:18px;margin:0 0 6px}
+  .wa textarea{width:100%;min-height:120px;border:1.5px solid var(--line);border-radius:12px;padding:12px;font-size:15px;font-family:inherit;resize:vertical}
+  .model{background:#f4f8f4;border:1px solid #cfe4d3;border-radius:12px;padding:14px 16px;margin-top:12px;display:none}
+  .model.show{display:block}
+  .model h4{margin:0 0 6px;color:var(--good);font-size:14px;text-transform:uppercase;letter-spacing:.4px}
+  .model ul{margin:8px 0 0;padding-left:20px}
+  .model li{margin:5px 0}
+
+  /* Notes */
+  .note-sec{margin-bottom:8px}
+  details.note{border:1px solid var(--line);border-radius:12px;background:#fff;margin-bottom:10px;overflow:hidden}
+  details.note>summary{cursor:pointer;padding:13px 16px;font-weight:700;font-family:Georgia,serif;font-size:16px;list-style:none;display:flex;align-items:center;gap:10px}
+  details.note>summary::-webkit-details-marker{display:none}
+  details.note>summary::before{content:"▸";color:var(--blue);transition:.2s}
+  details.note[open]>summary::before{transform:rotate(90deg)}
+  details.note .body{padding:0 16px 16px;font-size:15px}
+  .term-block{padding:10px 0;border-top:1px dashed var(--line)}
+  .term-block:first-child{border-top:none}
+  .term-block .t{font-weight:700;color:var(--navy)}
+  .term-block .w{color:#6a4a14;font-size:14px;margin-top:3px}
+
+  .empty{ text-align:center;color:var(--muted);padding:40px 10px }
+  .kbd{background:#eef1f4;border:1px solid #d6dbe1;border-radius:6px;padding:1px 7px;font-size:12px;font-family:ui-monospace,monospace}
+  footer{ text-align:center;color:var(--muted);font-size:13px;padding:26px 0 40px }
+  .confbtns{display:flex;gap:8px;justify-content:center;margin-top:14px}
+  .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:var(--navy);color:#fff;padding:12px 20px;border-radius:999px;font-weight:600;opacity:0;transition:.3s;z-index:50;box-shadow:var(--shadow)}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<header class="app">
+  <div class="wrap head-row">
+    <div>
+      <h1>⚔️ Sectionalism &amp; the Civil War</h1>
+      <div class="sub">Quarter 4 Study Hub · Units 10 &amp; 11</div>
+    </div>
+    <div class="badge">📅 Test: <b id="countdown">June 9th</b></div>
+  </div>
+</header>
+
+<nav class="tabs">
+  <div class="wrap">
+    <div class="tabrow" id="tabrow">
+      <button class="tab active" data-view="home"><span class="ico">🏠</span>Home</button>
+      <button class="tab" data-view="flash"><span class="ico">🃏</span>Flashcards</button>
+      <button class="tab" data-view="quiz"><span class="ico">✅</span>Quiz</button>
+      <button class="tab" data-view="match"><span class="ico">🔗</span>Matching</button>
+      <button class="tab" data-view="timeline"><span class="ico">📜</span>Timeline</button>
+      <button class="tab" data-view="write"><span class="ico">✍️</span>Short Answer</button>
+      <button class="tab" data-view="notes"><span class="ico">📖</span>Study Sheet</button>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap">
+  <!-- HOME -->
+  <section class="view active" id="view-home"></section>
+  <!-- FLASHCARDS -->
+  <section class="view" id="view-flash"></section>
+  <!-- QUIZ -->
+  <section class="view" id="view-quiz"></section>
+  <!-- MATCH -->
+  <section class="view" id="view-match"></section>
+  <!-- TIMELINE -->
+  <section class="view" id="view-timeline"></section>
+  <!-- WRITE -->
+  <section class="view" id="view-write"></section>
+  <!-- NOTES -->
+  <section class="view" id="view-notes"></section>
+</main>
+
+<div class="toast" id="toast"></div>
+<footer class="wrap">
+  Built for studying · Units 10 &amp; 11 · You've got this 💪 · <span class="muted">Tip: your progress saves automatically on this device.</span>
+</footer>
+
+<script>
+/* ============================================================
+   DATA — every term & topic straight from the study guide
+   ============================================================ */
+const U10 = "Unit 10: Sectionalism";
+const U11 = "Unit 11: Civil War";
+
+// term, unit, year (for timeline; null if not a datable event),
+// short (one-line gist used in matching/MC), def (full), why (why it mattered)
+const TERMS = [
+  // ---------- UNIT 10 ----------
+  { term:"Sectionalism", unit:U10, year:null,
+    short:"Loyalty to your own region (North/South) over the whole nation.",
+    def:"Greater loyalty to your own region or 'section' of the country than to the nation as a whole. By the mid-1800s the North (industrial, free) and South (agricultural, enslaved labor) had grown so different that they pulled apart.",
+    why:"It's the big umbrella idea for Unit 10 — every event below deepened sectionalism and pushed North and South toward war." },
+
+  { term:"Missouri Compromise (1820)", unit:U10, year:1820,
+    short:"Kept free/slave states balanced; banned slavery north of 36°30′.",
+    def:"Admitted Missouri as a slave state and Maine as a free state to keep the Senate balanced, and banned slavery in the rest of the Louisiana Territory north of the 36°30′ line.",
+    why:"It temporarily calmed tensions but showed how explosive slavery was — and drew a line that later laws (Kansas-Nebraska, Dred Scott) would tear up." },
+
+  { term:"Nullification Crisis (1832–33)", unit:U10, year:1832,
+    short:"South Carolina claimed it could ignore federal laws (tariffs).",
+    def:"South Carolina argued a state could 'nullify' (refuse to obey) federal tariff laws it disliked. President Andrew Jackson threatened to use the army; a compromise tariff ended it.",
+    why:"An early showdown of states' rights vs. federal power — a preview of the secession arguments that came in 1860–61." },
+
+  { term:"Compromise of 1850", unit:U10, year:1850,
+    short:"CA free; popular sovereignty in territories; tougher Fugitive Slave Act.",
+    def:"A bundle of laws to settle disputes over land from the Mexican-American War: California entered free, popular sovereignty decided Utah & New Mexico, the slave trade ended in Washington D.C., and a strict new Fugitive Slave Act was passed.",
+    why:"It delayed war for a decade but the harsh Fugitive Slave Act enraged Northerners and made slavery feel personal everywhere." },
+
+  { term:"Fugitive Slave Act (1850)", unit:U10, year:1850,
+    short:"Forced even free states to capture & return escaped enslaved people.",
+    def:"Part of the Compromise of 1850. It required citizens everywhere — even in free states — to help capture escaped enslaved people, and denied the accused a jury trial.",
+    why:"It outraged the North, turned moderates against slavery, and boosted support for the Underground Railroad." },
+
+  { term:"Popular sovereignty", unit:U10, year:null,
+    short:"Let the people of a territory vote on whether to allow slavery.",
+    def:"The idea that the settlers of a territory — not Congress — should vote to decide whether to allow slavery there.",
+    why:"Sounded fair but in practice it caused 'Bleeding Kansas,' because both sides rushed in to win the vote by force." },
+
+  { term:"Kansas-Nebraska Act (1854)", unit:U10, year:1854,
+    short:"Let Kansas/Nebraska vote on slavery; repealed the Missouri Compromise line.",
+    def:"Created the Kansas and Nebraska territories and let them decide on slavery by popular sovereignty — which repealed the Missouri Compromise's 36°30′ line and reopened northern land to slavery.",
+    why:"It shattered the earlier compromise, sparked 'Bleeding Kansas,' and helped give birth to the Republican Party." },
+
+  { term:"Bleeding Kansas", unit:U10, year:1855,
+    short:"Violent fighting between pro- and anti-slavery settlers in Kansas.",
+    def:"A series of violent clashes (1854–59) as pro-slavery and anti-slavery settlers flooded Kansas to swing the slavery vote, leading to raids, killings, and even a rigged election.",
+    why:"It proved popular sovereignty could mean bloodshed and showed the nation that compromise was breaking down." },
+
+  { term:"Abolition / Abolitionist", unit:U10, year:null,
+    short:"The movement to end slavery; a person who fought to end it.",
+    def:"Abolition was the movement to end (abolish) slavery. An abolitionist was someone who worked to end it — like Frederick Douglass, Harriet Tubman, William Lloyd Garrison, or Sojourner Truth.",
+    why:"Abolitionists kept slavery in the national spotlight through speeches, newspapers, and the Underground Railroad, hardening the divide between regions." },
+
+  { term:"Dred Scott Decision (1857)", unit:U10, year:1857,
+    short:"Supreme Court: enslaved people are property, not citizens.",
+    def:"Dred Scott, an enslaved man, sued for freedom after living in free territory. The Supreme Court ruled enslaved people were property (not citizens) who couldn't sue, and that Congress couldn't ban slavery in the territories.",
+    why:"It enraged the North, seemed to make slavery legal everywhere, and pushed the country much closer to war." },
+
+  { term:"John Brown & Harpers Ferry (1859)", unit:U10, year:1859,
+    short:"Abolitionist raid on a federal arsenal to start a slave uprising.",
+    def:"Abolitionist John Brown led a raid on the federal arsenal at Harpers Ferry, Virginia, hoping to arm enslaved people for a revolt. He failed and was executed.",
+    why:"The South saw him as a terrorist; many Northerners called him a martyr — the reactions showed how far apart the regions had grown." },
+
+  { term:"Republican Party's founding (1854)", unit:U10, year:1854,
+    short:"New party formed to stop slavery from spreading west.",
+    def:"A new political party formed in 1854, mainly to stop the spread of slavery into the western territories. Abraham Lincoln became its candidate in 1860.",
+    why:"A major anti-slavery party scared the South — a Republican winning the presidency became the trigger for secession." },
+
+  { term:"Presidential Election of 1860", unit:U10, year:1860,
+    short:"Lincoln won with zero Southern electoral votes.",
+    def:"Abraham Lincoln (Republican) won the presidency even though he wasn't on the ballot in most of the South, because the vote split among four candidates.",
+    why:"The South believed Lincoln would limit or end slavery, so his election directly triggered the secession of Southern states." },
+
+  { term:"Secession / Secession Crisis", unit:U10, year:1861,
+    short:"Southern states formally withdrew from the Union.",
+    def:"Secession means formally leaving the Union. After Lincoln's election, South Carolina seceded first (Dec 1860), followed by more Southern states that formed the Confederate States of America.",
+    why:"It created the central question of the war: can a state legally leave the Union? Lincoln said no — preserving the Union became the North's first war goal." },
+
+  { term:"Attack on Fort Sumter (April 1861)", unit:U10, year:1861,
+    short:"First battle of the Civil War, in Charleston Harbor, SC.",
+    def:"Confederate forces fired on the Union-held Fort Sumter in Charleston Harbor, South Carolina — the opening battle of the Civil War.",
+    why:"It started the shooting war, rallied the North, and pushed more Southern states to join the Confederacy." },
+
+  // ---------- UNIT 11 ----------
+  { term:"Edwin Pickett & the 17th Connecticut", unit:U11, year:null,
+    short:"A CT soldier & regiment; the 17th CT fought at Chancellorsville & Gettysburg.",
+    def:"A Connecticut soldier and his regiment, the 17th Connecticut Infantry. The 17th Connecticut fought at the Battle of Chancellorsville and the Battle of Gettysburg (and later in Florida).",
+    why:"A local connection to the war. ⭐ Check your class notes for the exact two battles your teacher wants — the historical record points to Chancellorsville and Gettysburg." },
+
+  { term:"Connecticut — 'Arsenal of the Union'", unit:U11, year:null,
+    short:"CT factories made huge amounts of weapons & supplies for the Union.",
+    def:"Connecticut was a manufacturing powerhouse whose factories (Colt and Sharps firearms in Hartford, ammunition, and supplies) produced enormous quantities of weapons for the Union — earning the nickname 'Arsenal of the Union.'",
+    why:"Why it mattered: CT's industry helped keep the Union army equipped. Impact at home: factories boomed and tens of thousands of CT men enlisted, so families and the economy were reshaped by the war." },
+
+  { term:"Union vs. Confederacy", unit:U11, year:null,
+    short:"North (USA, Lincoln) vs. South (CSA, Jefferson Davis).",
+    def:"Union = the North, ~23 states that stayed in the United States, led by President Abraham Lincoln. Confederacy = the South, 11 seceded states (Confederate States of America), led by President Jefferson Davis.",
+    why:"The North had more people, factories, and railroads; the South had strong generals and was defending home ground. Those differences shaped the whole war." },
+
+  { term:"Capital Cities", unit:U11, year:null,
+    short:"Union capital = Washington, D.C.; Confederate capital = Richmond, VA.",
+    def:"The Union capital was Washington, D.C. The Confederate capital was Richmond, Virginia.",
+    why:"They sat only ~100 miles apart, so much of the war's heaviest fighting happened in Virginia, between the two capitals." },
+
+  { term:"Border States", unit:U11, year:null,
+    short:"Slave states that stayed in the Union: MO, KY, MD, DE.",
+    def:"Slave states that did NOT secede and stayed loyal to the Union: Missouri, Kentucky, Maryland, and Delaware (West Virginia split off from Virginia in 1863).",
+    why:"They were vital for their location, people, and resources. Keeping them loyal is why the Emancipation Proclamation freed enslaved people only in Confederate states — Lincoln didn't want to anger the border states into leaving." },
+
+  { term:"Secede / Secession", unit:U11, year:null,
+    short:"To formally withdraw from the Union.",
+    def:"To formally withdraw from the Union. Eleven Southern states seceded to form the Confederacy.",
+    why:"Whether secession was legal was the core dispute of the war — Lincoln fought to prove the Union could not be broken apart." },
+
+  { term:"Infantry vs. Cavalry", unit:U11, year:null,
+    short:"Infantry fight on foot; cavalry fight on horseback.",
+    def:"Infantry are soldiers who fight on foot — the bulk of any army. Cavalry are soldiers who fight on horseback, used for scouting, fast raids, and screening the army.",
+    why:"Knowing the difference helps you read battle descriptions — infantry held the lines while cavalry moved fast and gathered information." },
+
+  { term:"Emancipate", unit:U11, year:null,
+    short:"To free someone from slavery or control.",
+    def:"To set someone free — especially to free a person from slavery.",
+    why:"It's the root of 'Emancipation Proclamation' — the order that began freeing enslaved people during the war." },
+
+  { term:"Emancipation Proclamation (Jan 1, 1863)", unit:U11, year:1863,
+    short:"Lincoln's order declaring enslaved people in Confederate states free.",
+    def:"President Lincoln's order (effective Jan 1, 1863) declaring enslaved people in the rebelling Confederate states 'forever free.' It did not free enslaved people in the loyal border states.",
+    why:"GOALS: weaken the Confederacy and make ending slavery an official Union war aim. IT CHANGED THE WAR by turning it into a fight against slavery, discouraging Britain/France from aiding the South, and letting Black men join the army. LINCOLN'S CONSIDERATIONS: he waited for the Antietam victory so it looked strong, limited it to Confederate states to keep the border states loyal, and issued it as a wartime measure." },
+
+  { term:"African American Regiments", unit:U11, year:null,
+    short:"~180,000 Black soldiers joined the Union after the Proclamation.",
+    def:"After the Emancipation Proclamation allowed it, about 180,000 African American men served in the Union army (United States Colored Troops), including the 54th Massachusetts and the 29th Connecticut.",
+    why:"It directly connects to the Proclamation — emancipation opened the army to Black soldiers, who then helped win the war and proved their courage." },
+
+  { term:"54th Massachusetts", unit:U11, year:null,
+    short:"Famous early Black regiment; brave assault on Fort Wagner (1863).",
+    def:"One of the first official African American regiments in the Union army, famous for its courageous 1863 assault on Fort Wagner in South Carolina (the story behind the movie 'Glory').",
+    why:"Its bravery proved to a doubting public that Black soldiers would fight heroically, boosting recruitment and the case for emancipation." },
+
+  { term:"29th Connecticut", unit:U11, year:null,
+    short:"CT's Black regiment; among the first Union troops into Richmond (1865).",
+    def:"Connecticut's African American regiment (United States Colored Troops). Its soldiers were among the first Union troops to enter the Confederate capital, Richmond, in 1865.",
+    why:"The local example of Black Connecticut soldiers serving — ties Unit 11's emancipation theme directly to your state." },
+
+  { term:"Battle of Antietam (Sept 1862)", unit:U11, year:1862,
+    short:"Bloodiest single day; Union win that enabled the Emancipation Proclamation.",
+    def:"Fought in Maryland — the bloodiest single day in American history (~23,000 casualties). A strategic Union victory that stopped Lee's first invasion of the North.",
+    why:"The win gave Lincoln the strong moment he needed to issue the Emancipation Proclamation days later — that's the connection your guide asks about." },
+
+  { term:"Battle of Gettysburg (July 1863)", unit:U11, year:1863,
+    short:"Turning point; Union win ending Lee's invasion of the North.",
+    def:"Fought in Pennsylvania — the war's bloodiest battle and its turning point. The Union victory ended Confederate General Lee's second invasion of the North.",
+    why:"After Gettysburg the South never seriously invaded the North again. Lincoln honored the dead there in the Gettysburg Address." },
+
+  { term:"Siege of Vicksburg (July 1863)", unit:U11, year:1863,
+    short:"Grant's win gave the Union the Mississippi River, splitting the South.",
+    def:"General Ulysses S. Grant's Union forces captured Vicksburg, Mississippi (surrendered July 4, 1863), giving the Union full control of the Mississippi River.",
+    why:"It split the Confederacy in two and — together with Gettysburg the same week — marked the war's great turning point." },
+
+  { term:"Appomattox (April 1865)", unit:U11, year:1865,
+    short:"Where Lee surrendered to Grant, ending the war.",
+    def:"Appomattox Court House, Virginia, where Confederate General Robert E. Lee surrendered to Union General Ulysses S. Grant on April 9, 1865.",
+    why:"It effectively ended the Civil War and the Confederacy." },
+
+  { term:"Abraham Lincoln", unit:U11, year:null,
+    short:"16th President; led the Union, issued the Emancipation Proclamation.",
+    def:"The 16th U.S. President. He led the Union through the Civil War, issued the Emancipation Proclamation, gave the Gettysburg Address, and preserved the Union. He was assassinated in April 1865.",
+    why:"His decisions — preserving the Union, then making it a war against slavery — defined the war's purpose and outcome." },
+
+  { term:"Ulysses S. Grant", unit:U11, year:null,
+    short:"Top Union general who accepted Lee's surrender; later 18th President.",
+    def:"The Union's top general, known for aggressive, determined fighting (Vicksburg). He accepted Lee's surrender at Appomattox and later became the 18th President.",
+    why:"His relentless strategy wore down the Confederacy and brought the war to an end." },
+];
+
+// Hand-written conceptual multiple-choice questions (test-style)
+const CONCEPT_Q = [
+  { q:"What was the main effect of the Kansas-Nebraska Act (1854)?",
+    a:["It let territories vote on slavery, repealing the Missouri Compromise line and causing 'Bleeding Kansas'",
+       "It admitted California as a free state",
+       "It freed enslaved people in the South",
+       "It ended the Civil War"], c:0 },
+  { q:"Why did the Dred Scott decision (1857) anger many Northerners?",
+    a:["The Court ruled enslaved people were property, not citizens, and that Congress couldn't ban slavery in the territories",
+       "It immediately freed all enslaved people",
+       "It admitted Kansas as a free state",
+       "It started the Civil War"], c:0 },
+  { q:"What was the significance of the Battle of Antietam (1862)?",
+    a:["A Union victory that gave Lincoln the chance to issue the Emancipation Proclamation",
+       "It was the final battle of the war",
+       "It captured the Mississippi River",
+       "It was a Confederate invasion of California"], c:0 },
+  { q:"Why is Gettysburg (1863) considered the turning point of the war?",
+    a:["The Union victory ended Lee's invasion of the North; the South never seriously invaded again",
+       "It freed the enslaved people of Virginia",
+       "It was where Lee surrendered",
+       "It opened the Mississippi River"], c:0 },
+  { q:"What did the Siege of Vicksburg accomplish for the Union?",
+    a:["It gave the Union control of the Mississippi River, splitting the Confederacy in two",
+       "It captured Richmond",
+       "It ended slavery in the border states",
+       "It started the war"], c:0 },
+  { q:"What was the Republican Party's main goal when it formed in 1854?",
+    a:["To stop the spread of slavery into the western territories",
+       "To immediately abolish slavery in every state",
+       "To lower tariffs for the South",
+       "To support secession"], c:0 },
+  { q:"Why did Southern states secede after the election of 1860?",
+    a:["They feared Lincoln and the Republicans would restrict or end slavery",
+       "They wanted to lower tariffs only",
+       "Lincoln declared war on them",
+       "They lost the Mississippi River"], c:0 },
+  { q:"Where was the first battle of the Civil War fought?",
+    a:["Fort Sumter, South Carolina","Gettysburg, Pennsylvania","Antietam, Maryland","Appomattox, Virginia"], c:0 },
+  { q:"Which group were the border states that stayed in the Union?",
+    a:["Missouri, Kentucky, Maryland, and Delaware",
+       "Virginia, Texas, Georgia, and Florida",
+       "California, Oregon, Kansas, and Nebraska",
+       "New York, Ohio, Maine, and Vermont"], c:0 },
+  { q:"Why did the Emancipation Proclamation NOT free enslaved people in the border states?",
+    a:["Lincoln didn't want to anger the loyal border states into joining the Confederacy",
+       "There were no enslaved people in the border states",
+       "Congress forbade it",
+       "The border states had already freed them"], c:0 },
+  { q:"What major change did the Emancipation Proclamation make to the Union army?",
+    a:["It allowed African American men to enlist and fight for the Union",
+       "It ended the draft",
+       "It created the cavalry",
+       "It moved the capital to Richmond"], c:0 },
+  { q:"The 54th Massachusetts regiment is best known for what?",
+    a:["Its courageous assault on Fort Wagner, proving the valor of Black soldiers",
+       "Capturing Vicksburg",
+       "Burning Atlanta",
+       "Defending Fort Sumter"], c:0 },
+  { q:"What happened at Appomattox Court House in 1865?",
+    a:["Confederate General Lee surrendered to Union General Grant, ending the war",
+       "The first shots of the war were fired",
+       "Lincoln issued the Emancipation Proclamation",
+       "Kansas voted to allow slavery"], c:0 },
+  { q:"Why was Connecticut called the 'Arsenal of the Union'?",
+    a:["Its factories produced huge amounts of weapons and supplies for the Union army",
+       "It had the most soldiers of any state",
+       "It was the Union's capital",
+       "It was where Lee surrendered"], c:0 },
+  { q:"What is popular sovereignty?",
+    a:["Letting the people of a territory vote on whether to allow slavery",
+       "A tax on imported goods",
+       "The power of the Supreme Court to free enslaved people",
+       "A state's right to leave the Union"], c:0 },
+  { q:"What was 'Bleeding Kansas'?",
+    a:["Violence between pro- and anti-slavery settlers over whether Kansas would allow slavery",
+       "A battle of the Civil War in Kansas",
+       "A failed slave revolt",
+       "The nickname for the Fugitive Slave Act"], c:0 },
+  { q:"What did the Missouri Compromise (1820) do?",
+    a:["Kept free and slave states balanced and banned slavery north of the 36°30′ line",
+       "Repealed all earlier slavery laws",
+       "Admitted California as a free state",
+       "Started the Republican Party"], c:0 },
+  { q:"What did the Fugitive Slave Act of 1850 require?",
+    a:["That escaped enslaved people be captured and returned, even from free states",
+       "That all territories vote on slavery",
+       "That the South free its enslaved people",
+       "That Kansas become a slave state"], c:0 },
+  { q:"What was the Confederate capital?",
+    a:["Richmond, Virginia","Washington, D.C.","Charleston, South Carolina","Atlanta, Georgia"], c:0 },
+  { q:"What is the difference between infantry and cavalry?",
+    a:["Infantry fight on foot; cavalry fight on horseback",
+       "Infantry use cannons; cavalry use rifles",
+       "Infantry are officers; cavalry are recruits",
+       "Infantry fight at sea; cavalry fight on land"], c:0 },
+  { q:"What was the Nullification Crisis (1832–33) an early example of?",
+    a:["States' rights vs. federal power — a preview of secession",
+       "An abolitionist revolt",
+       "A dispute over the Mississippi River",
+       "A war with Mexico"], c:0 },
+  { q:"John Brown's 1859 raid on Harpers Ferry was an attempt to do what?",
+    a:["Seize weapons to arm enslaved people for a revolt",
+       "Capture the Confederate capital",
+       "Stop the Fugitive Slave Act in court",
+       "Win the 1860 election"], c:0 },
+];
+
+// Short-answer / extended-response prompts with model answers (bullet points)
+const SHORT = [
+  { q:"Describe the Emancipation Proclamation: What were its goals? How did it change the course of the war? What were Lincoln's considerations?",
+    tag:U11,
+    pts:[
+      "WHAT: Lincoln's order (effective Jan 1, 1863) declaring enslaved people in the rebelling Confederate states 'forever free.'",
+      "GOALS: Weaken the Confederacy by freeing the labor force, and make ending slavery an official Union war aim (a moral cause).",
+      "HOW IT CHANGED THE WAR: It turned the war into a fight against slavery (not just to save the Union); discouraged Britain & France from helping the South; and allowed African American men to join the Union army.",
+      "LINCOLN'S CONSIDERATIONS: He waited for the Union win at Antietam so it looked strong (not desperate); limited it to Confederate states so the loyal border states wouldn't secede; and issued it as a wartime 'military' measure for legal reasons."
+    ] },
+  { q:"Which states were the border states, and why were they significant?",
+    tag:U11,
+    pts:[
+      "WHO: Missouri, Kentucky, Maryland, and Delaware — slave states that stayed in the Union (West Virginia split from Virginia in 1863).",
+      "WHY SIGNIFICANT: Their location, population, and resources were strategically valuable to whichever side held them.",
+      "KEY POINT: Lincoln worked hard to keep them loyal — which is why the Emancipation Proclamation freed enslaved people only in Confederate states, so the border states wouldn't be angered into joining the South."
+    ] },
+  { q:"Why was Connecticut called the 'Arsenal of the Union,' and how did the war affect CT soldiers and civilians?",
+    tag:U11,
+    pts:[
+      "ARSENAL: Connecticut's factories (like Colt and Sharps firearms in Hartford) mass-produced weapons, ammunition, and supplies for the Union army.",
+      "WHY IT MATTERED: That industry helped keep Union soldiers armed and equipped throughout the war.",
+      "IMPACT ON SOLDIERS: Tens of thousands of CT men enlisted and fought (e.g., the 17th CT, and the African American 29th CT).",
+      "IMPACT ON CIVILIANS: Factory jobs and wartime demand boomed the economy, while families coped with absent and lost loved ones."
+    ] },
+  { q:"Explain the Battle of Antietam and its connection to the Emancipation Proclamation.",
+    tag:U11,
+    pts:[
+      "ANTIETAM (Sept 1862, Maryland): The bloodiest single day in U.S. history; a strategic Union victory that stopped Lee's first invasion of the North.",
+      "CONNECTION: Lincoln had been waiting for a Union win before announcing emancipation so it wouldn't look like a desperate act.",
+      "RESULT: Days after Antietam, Lincoln issued the preliminary Emancipation Proclamation — so the battle directly made emancipation possible."
+    ] },
+  { q:"Describe ONE abolitionist (from the Abolitionist Presentations): Who were they, and how did they challenge slavery and/or racism?",
+    tag:U10,
+    pts:[
+      "⭐ Use the person YOU or a classmate presented. Structure your answer like this:",
+      "WHO: Name and a quick background (e.g., formerly enslaved, a writer, a 'conductor,' a preacher).",
+      "HOW THEY CHALLENGED SLAVERY/RACISM: Their specific actions — e.g., speeches & newspapers (Frederick Douglass), guiding people to freedom on the Underground Railroad (Harriet Tubman), powerful writing (William Lloyd Garrison's 'The Liberator'), or famous speeches for abolition AND women's rights (Sojourner Truth).",
+      "IMPACT: How their work changed minds, freed people, or pushed the nation toward ending slavery."
+    ] },
+  { q:"Describe ONE topic from the Civil War Magazine Investigations and how it impacted the war's outcome (a Technology, Policy, or Military Strategy — OR an individual/group who challenged traditional gender roles).",
+    tag:U11,
+    pts:[
+      "⭐ Use the topic YOU investigated. Pick one of the two paths:",
+      "TECH/POLICY/STRATEGY: Name it, explain what it was, and explain HOW it changed the war (e.g., rifled muskets & trench warfare made battles deadlier; railroads & telegraph moved troops and messages fast; the Union naval blockade choked the Southern economy; total war / Sherman's March broke the South's will).",
+      "GENDER ROLES: Name the person/group and explain how they broke tradition AND helped the war effort (e.g., women as nurses like Clara Barton, women running farms & factories, spies, or soldiers who disguised themselves to fight).",
+      "ALWAYS END WITH IMPACT: tie it back to how it affected the war's outcome."
+    ] },
+  { q:"How did the Kansas-Nebraska Act lead to 'Bleeding Kansas' and increase sectional tensions?",
+    tag:U10,
+    pts:[
+      "The Act let Kansas & Nebraska decide on slavery by popular sovereignty, repealing the Missouri Compromise line.",
+      "Both pro-slavery and anti-slavery settlers rushed into Kansas to win the vote — leading to fraud, raids, and killings ('Bleeding Kansas').",
+      "It showed compromise was failing and that the slavery question could turn violent, deepening hatred between North and South."
+    ] },
+  { q:"Explain how the Election of 1860 led to secession and the start of the war.",
+    tag:U10,
+    pts:[
+      "Lincoln (Republican) won without carrying a single Southern state because the vote split four ways.",
+      "The South feared Lincoln would restrict or end slavery, so South Carolina seceded first, followed by more states forming the Confederacy.",
+      "When Confederates fired on Fort Sumter (April 1861), the secession crisis became a shooting war."
+    ] },
+];
+
+// Timeline events (chronological). Built from the datable TERMS plus a couple extras.
+const TIMELINE = [
+  { label:"Missouri Compromise", year:1820 },
+  { label:"Nullification Crisis", year:1832 },
+  { label:"Compromise of 1850 (+ Fugitive Slave Act)", year:1850 },
+  { label:"Kansas-Nebraska Act / Republican Party founded", year:1854 },
+  { label:"Bleeding Kansas", year:1855 },
+  { label:"Dred Scott Decision", year:1857 },
+  { label:"John Brown's Raid on Harpers Ferry", year:1859 },
+  { label:"Election of 1860 (Lincoln wins)", year:1860 },
+  { label:"Secession & Attack on Fort Sumter", year:1861 },
+  { label:"Battle of Antietam", year:1862 },
+  { label:"Emancipation Proclamation", year:1863.1 },
+  { label:"Battle of Gettysburg / Siege of Vicksburg", year:1863.5 },
+  { label:"Appomattox — Lee surrenders", year:1865 },
+];
+
+/* ============================================================
+   STATE / STORAGE
+   ============================================================ */
+const LS_KEY = "cw_study_v1";
+let store = loadStore();
+function loadStore(){
+  try{ return JSON.parse(localStorage.getItem(LS_KEY)) || {}; }catch(e){ return {}; }
+}
+function saveStore(){ try{ localStorage.setItem(LS_KEY, JSON.stringify(store)); }catch(e){} }
+store.conf = store.conf || {};        // term -> "know" | "review"
+store.bestQuiz = store.bestQuiz || 0; // best quiz %
+store.bestMatch = store.bestMatch || null; // fewest mistakes
+store.bestTimeline = store.bestTimeline || 0; // best % correct positions
+
+/* ============================================================
+   HELPERS
+   ============================================================ */
+const $ = (s,el=document)=>el.querySelector(s);
+const $$ = (s,el=document)=>[...el.querySelectorAll(s)];
+function shuffle(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
+function esc(s){ return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+let toastTimer;
+function toast(msg){ const t=$("#toast"); t.textContent=msg; t.classList.add("show"); clearTimeout(toastTimer); toastTimer=setTimeout(()=>t.classList.remove("show"),1800); }
+
+/* ============================================================
+   ROUTER
+   ============================================================ */
+const RENDERERS = { home:renderHome, flash:renderFlash, quiz:renderQuiz, match:renderMatch, timeline:renderTimeline, write:renderWrite, notes:renderNotes };
+function showView(name){
+  $$(".tab").forEach(t=>t.classList.toggle("active", t.dataset.view===name));
+  $$(".view").forEach(v=>v.classList.remove("active"));
+  $("#view-"+name).classList.add("active");
+  RENDERERS[name]();
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+$("#tabrow").addEventListener("click", e=>{ const b=e.target.closest(".tab"); if(b) showView(b.dataset.view); });
+
+/* ============================================================
+   HOME
+   ============================================================ */
+function renderHome(){
+  const total = TERMS.length;
+  const known = Object.values(store.conf).filter(v=>v==="know").length;
+  const review = Object.values(store.conf).filter(v=>v==="review").length;
+  const pct = Math.round(known/total*100);
+  const el = $("#view-home");
+  el.innerHTML = `
+  <div class="hero">
+    <div class="card">
+      <h2 style="margin-top:0">Welcome — let's ace this test 🎯</h2>
+      <p class="muted" style="margin-top:-4px">Your study guide has two units. The test is <b>matching, multiple choice, short answer, and extended response</b> — so this app has a mode for each. Tap a card below to start.</p>
+      <div class="grid cols2" style="margin-top:14px">
+        ${modeCard("flash","🃏","Flashcards","Flip through all "+TERMS.length+" key terms with definitions & why they mattered.")}
+        ${modeCard("quiz","✅","Quiz","Multiple-choice — just like the test. Get instant feedback.")}
+        ${modeCard("match","🔗","Matching","Match terms to definitions against the clock.")}
+        ${modeCard("timeline","📜","Timeline","Put the road-to-war events in the right order.")}
+        ${modeCard("write","✍️","Short Answer","Practice the extended-response questions with model answers.")}
+        ${modeCard("notes","📖","Study Sheet","Read everything in one clean, organized place.")}
+      </div>
+    </div>
+    <div>
+      <div class="card">
+        <h3 style="margin-top:0">📊 Your progress</h3>
+        <div class="progress-wrap"><div class="progress-bar" style="width:${pct}%"></div></div>
+        <div class="muted" style="font-size:13px;margin:6px 0 12px">${known} of ${total} terms marked "Got it" (${pct}%)</div>
+        <div class="stat"><span>✅ Got it</span><b>${known}</b></div>
+        <div class="stat"><span>🔁 Needs review</span><b>${review}</b></div>
+        <div class="stat"><span>🃏 Not studied yet</span><b>${total-known-review}</b></div>
+        <div class="stat"><span>🏆 Best quiz score</span><b>${store.bestQuiz}%</b></div>
+        <div class="stat"><span>🏆 Best timeline</span><b>${store.bestTimeline}%</b></div>
+        <div class="stat"><span>🏆 Best match (fewest misses)</span><b>${store.bestMatch===null?"—":store.bestMatch}</b></div>
+        <button class="btn ghost sm" style="margin-top:12px" onclick="resetProgress()">Reset progress</button>
+      </div>
+      <div class="card" style="margin-top:16px;background:#fff7e6;border-color:#f0deb6">
+        <h3 style="margin-top:0">🌟 Don't forget</h3>
+        <p style="margin:0;font-size:14px">Two questions on the test ask you to <b>describe a person/topic from your own class work</b> (your Abolitionist Presentation and your Civil War Magazine Investigation). The Short Answer tab has guides for those — but use <b>your</b> specific person/topic from class notes!</p>
+      </div>
+    </div>
+  </div>`;
+}
+function modeCard(view,icon,title,desc){
+  return `<div class="card mode-card" onclick="showView('${view}')">
+    <div class="mi">${icon}</div>
+    <div><h3>${title}</h3><p>${desc}</p></div>
+  </div>`;
+}
+function resetProgress(){
+  if(confirm("Reset all your study progress on this device?")){
+    store={conf:{},bestQuiz:0,bestMatch:null,bestTimeline:0}; saveStore(); renderHome(); toast("Progress reset");
+  }
+}
+
+/* ============================================================
+   FLASHCARDS
+   ============================================================ */
+let fcDeck=[], fcIdx=0, fcFlipped=false, fcFilter="all";
+function buildDeck(){
+  let pool = TERMS.slice();
+  if(fcFilter==="u10") pool = pool.filter(t=>t.unit===U10);
+  else if(fcFilter==="u11") pool = pool.filter(t=>t.unit===U11);
+  else if(fcFilter==="review") pool = pool.filter(t=>store.conf[t.term]==="review" || !store.conf[t.term]);
+  fcDeck = shuffle(pool); fcIdx=0; fcFlipped=false;
+}
+function renderFlash(){
+  if(!fcDeck.length) buildDeck();
+  const el=$("#view-flash");
+  el.innerHTML=`
+  <div class="card">
+    <div class="row" style="margin-bottom:6px">
+      <h2 style="margin:0">🃏 Flashcards</h2><span class="spacer"></span>
+      <select id="fcFilter" class="btn ghost sm" style="appearance:auto">
+        <option value="all">All terms</option>
+        <option value="u10">Unit 10 only</option>
+        <option value="u11">Unit 11 only</option>
+        <option value="review">Needs review / new</option>
+      </select>
+      <button class="btn ghost sm" onclick="reshuffleDeck()">🔀 Shuffle</button>
+    </div>
+    <div id="fcEmpty" class="empty" style="display:none">🎉 Nothing in this pile — you've marked everything "Got it"! Switch the filter to review more.</div>
+    <div id="fcMain">
+      <div class="flash-stage">
+        <div class="flash" id="flashCard" onclick="flipCard()">
+          <div class="face front">
+            <span class="pill flash-meta" id="fcUnit"></span>
+            <div class="muted" style="font-size:13px">TERM</div>
+            <div class="term" id="fcTerm"></div>
+            <div class="hint">Click / press <span class="kbd">Space</span> to flip</div>
+          </div>
+          <div class="face back">
+            <span class="pill flash-meta" id="fcUnit2"></span>
+            <div class="def" id="fcDef"></div>
+            <div class="why" id="fcWhy"></div>
+          </div>
+        </div>
+      </div>
+      <div class="deck-bar" style="justify-content:center">
+        <button class="btn ghost" onclick="prevCard()">⟵ Prev</button>
+        <span class="counter" id="fcCounter"></span>
+        <button class="btn ghost" onclick="nextCard()">Next ⟶</button>
+      </div>
+      <div class="confbtns">
+        <button class="btn red" onclick="markCard('review')">🔁 Still learning</button>
+        <button class="btn" style="background:var(--good)" onclick="markCard('know')">✅ Got it</button>
+      </div>
+      <p class="center muted" style="font-size:13px;margin-top:10px"><span class="kbd">←</span> <span class="kbd">→</span> navigate · <span class="kbd">Space</span> flip</p>
+    </div>
+  </div>`;
+  $("#fcFilter").value=fcFilter;
+  $("#fcFilter").addEventListener("change",e=>{ fcFilter=e.target.value; buildDeck(); paintCard(); });
+  paintCard();
+}
+function paintCard(){
+  const empty=$("#fcEmpty"), main=$("#fcMain");
+  if(!fcDeck.length){ empty.style.display="block"; main.style.display="none"; return; }
+  empty.style.display="none"; main.style.display="block";
+  const t=fcDeck[fcIdx];
+  fcFlipped=false; $("#flashCard").classList.remove("flipped");
+  const isU10=t.unit===U10;
+  const unitHtml = `<span class="${isU10?'':'u11 '}pill" style="${isU10?'':'background:#f3dcc4;color:#7a4a12'}">${isU10?'Unit 10':'Unit 11'}</span>`;
+  $("#fcUnit").outerHTML = `<span class="pill flash-meta" id="fcUnit" style="${isU10?'':'background:#f3dcc4;color:#7a4a12'}">${isU10?'Unit 10':'Unit 11'}</span>`;
+  $("#fcUnit2").outerHTML = `<span class="pill flash-meta" id="fcUnit2" style="${isU10?'':'background:#f3dcc4;color:#7a4a12'}">${isU10?'Unit 10':'Unit 11'}</span>`;
+  $("#fcTerm").textContent=t.term;
+  $("#fcDef").innerHTML=`<b>${esc(t.term)}</b><br>${esc(t.def)}`;
+  $("#fcWhy").innerHTML = t.why? `💡 <b>Why it matters:</b> ${esc(t.why)}` : "";
+  $("#fcWhy").style.display = t.why? "block":"none";
+  const status = store.conf[t.term];
+  $("#fcCounter").innerHTML=`${fcIdx+1} / ${fcDeck.length} ${status==="know"?"✅":status==="review"?"🔁":""}`;
+}
+function flipCard(){ fcFlipped=!fcFlipped; $("#flashCard").classList.toggle("flipped",fcFlipped); }
+function nextCard(){ if(!fcDeck.length)return; fcIdx=(fcIdx+1)%fcDeck.length; paintCard(); }
+function prevCard(){ if(!fcDeck.length)return; fcIdx=(fcIdx-1+fcDeck.length)%fcDeck.length; paintCard(); }
+function reshuffleDeck(){ buildDeck(); paintCard(); toast("Shuffled!"); }
+function markCard(s){
+  if(!fcDeck.length)return;
+  const t=fcDeck[fcIdx]; store.conf[t.term]=s; saveStore();
+  toast(s==="know"?"Nice — marked Got it ✅":"Marked for review 🔁");
+  if(fcIdx>=fcDeck.length-1){ paintCard(); } else { nextCard(); }
+}
+
+/* ============================================================
+   QUIZ
+   ============================================================ */
+let quizQs=[], quizIdx=0, quizScore=0, quizPicks=[];
+function buildQuiz(n=12){
+  // mix concept questions + auto-generated "which term means…" questions
+  const autoQs = TERMS.map(t=>{
+    const distract = shuffle(TERMS.filter(x=>x.term!==t.term)).slice(0,3).map(x=>x.term);
+    const opts = shuffle([t.term, ...distract]);
+    return { q:`Which term best matches this description?  “${t.short}”`, a:opts, c:opts.indexOf(t.term) };
+  });
+  const pool = shuffle([...CONCEPT_Q, ...autoQs]);
+  quizQs = pool.slice(0,n).map(q=>{
+    // shuffle answer order while tracking correct
+    const correct=q.a[q.c];
+    const a=shuffle(q.a);
+    return { q:q.q, a, c:a.indexOf(correct) };
+  });
+  quizIdx=0; quizScore=0; quizPicks=[];
+}
+function renderQuiz(){
+  if(!quizQs.length) buildQuiz();
+  const el=$("#view-quiz");
+  if(quizIdx>=quizQs.length){ return renderQuizResult(); }
+  const q=quizQs[quizIdx];
+  const pick=quizPicks[quizIdx];           // chosen option index, or undefined if unanswered
+  const answered = pick!=null;
+  const answeredCount = quizPicks.filter(p=>p!=null).length;
+  el.innerHTML=`
+  <div class="card">
+    <div class="row">
+      <span class="q-num">Question ${quizIdx+1} of ${quizQs.length}</span>
+      <span class="spacer"></span>
+      <span class="scorebar">Score: ${quizScore}/${answeredCount}</span>
+    </div>
+    <div class="progress-wrap" style="margin:8px 0 16px"><div class="progress-bar" style="width:${quizIdx/quizQs.length*100}%"></div></div>
+    <div class="q-text">${esc(q.q)}</div>
+    <div id="opts">
+      ${q.a.map((opt,i)=>{
+        let cls="opt";
+        if(answered){ cls+=" locked"; if(i===q.c) cls+=" correct"; else if(i===pick) cls+=" wrong"; }
+        return `<button class="${cls}" data-i="${i}" onclick="answerQuiz(${i})">${esc(opt)}</button>`;
+      }).join("")}
+    </div>
+    <div class="feedback ${answered?(pick===q.c?'show ok':'show no'):''}" id="qfb">${answered?(pick===q.c?'✅ Correct!':`❌ Not quite. The answer is: <b>${esc(q.a[q.c])}</b>`):''}</div>
+    <div class="row" style="margin-top:14px">
+      <button class="btn ghost sm" onclick="restartQuiz()">↻ New quiz</button>
+      <span class="spacer"></span>
+      <button class="btn" id="qnext" style="display:${answered?'inline-block':'none'}" onclick="nextQuiz()">${quizIdx===quizQs.length-1?'See results ⟶':'Next ⟶'}</button>
+    </div>
+  </div>`;
+}
+function answerQuiz(i){
+  if(quizPicks[quizIdx]!=null) return;      // already answered this question — ignore
+  quizPicks[quizIdx]=i;
+  if(i===quizQs[quizIdx].c) quizScore++;
+  renderQuiz();                             // redraw in answered state (resumes cleanly after tab switches)
+}
+function nextQuiz(){ quizIdx++; renderQuiz(); }
+function restartQuiz(){ buildQuiz(); renderQuiz(); }
+function renderQuizResult(){
+  const pct=Math.round(quizScore/quizQs.length*100);
+  if(pct>store.bestQuiz){ store.bestQuiz=pct; saveStore(); }
+  const msg = pct>=90?"Outstanding! You're test-ready. 🏆":pct>=75?"Great work — review the misses and you've got it. 💪":pct>=50?"Good start — keep drilling the flashcards. 📚":"Keep going — try flashcards, then come back. You'll get there! 🌱";
+  $("#view-quiz").innerHTML=`
+  <div class="card center">
+    <h2 style="margin-top:0">Quiz complete!</h2>
+    <div style="font-size:54px;font-weight:800;color:var(--navy);font-family:Georgia,serif">${pct}%</div>
+    <p style="font-size:18px;margin:.2em 0">You got <b>${quizScore}</b> of <b>${quizQs.length}</b> correct.</p>
+    <p class="muted">${msg}</p>
+    <p class="muted" style="font-size:13px">Best score so far: ${store.bestQuiz}%</p>
+    <div class="row" style="justify-content:center;margin-top:14px">
+      <button class="btn" onclick="restartQuiz()">↻ Try another quiz</button>
+      <button class="btn ghost" onclick="showView('flash')">🃏 Study flashcards</button>
+    </div>
+  </div>`;
+}
+
+/* ============================================================
+   MATCHING
+   ============================================================ */
+let mPairs=[], mSelTerm=null, mMisses=0, mDone=0, mRoundSize=6;
+function buildMatch(){
+  const pick = shuffle(TERMS).slice(0,mRoundSize);
+  mPairs = pick.map(t=>({term:t.term, def:t.short}));
+  mSelTerm=null; mMisses=0; mDone=0;
+}
+function renderMatch(){
+  if(!mPairs.length) buildMatch();
+  const terms = mPairs.map((p,i)=>({...p,i}));
+  const defs = shuffle(mPairs.map((p,i)=>({...p,i})));
+  $("#view-match").innerHTML=`
+  <div class="card">
+    <div class="row">
+      <h2 style="margin:0">🔗 Matching</h2><span class="spacer"></span>
+      <span class="pill">Misses: <b id="mMiss">${mMisses}</b></span>
+      <button class="btn ghost sm" onclick="newMatch()">↻ New set</button>
+    </div>
+    <p class="muted" style="margin:6px 0 14px">Click a <b>term</b> on the left, then its matching <b>definition</b> on the right.</p>
+    <div class="match-grid">
+      <div class="match-col">
+        <h4>Terms</h4>
+        <div id="mTerms">
+          ${terms.map(t=>`<div class="mitem" data-i="${t.i}" data-kind="term" onclick="pickTerm(${t.i})">${esc(t.term)}</div>`).join("")}
+        </div>
+      </div>
+      <div class="match-col">
+        <h4>Definitions</h4>
+        <div id="mDefs">
+          ${defs.map(d=>`<div class="mitem" data-i="${d.i}" data-kind="def" onclick="pickDef(${d.i})">${esc(d.def)}</div>`).join("")}
+        </div>
+      </div>
+    </div>
+    <div id="mResult"></div>
+  </div>`;
+}
+function pickTerm(i){
+  const node=document.querySelector(`#mTerms .mitem[data-i="${i}"]`);
+  if(node.classList.contains("done"))return;
+  $$("#mTerms .mitem").forEach(n=>n.classList.remove("sel"));
+  mSelTerm=i; node.classList.add("sel");
+}
+function pickDef(i){
+  if(mSelTerm===null){ toast("Pick a term first ☝️"); return; }
+  const defNode=document.querySelector(`#mDefs .mitem[data-i="${i}"]`);
+  if(defNode.classList.contains("done"))return;
+  const termNode=document.querySelector(`#mTerms .mitem[data-i="${mSelTerm}"]`);
+  if(i===mSelTerm){
+    termNode.classList.remove("sel"); termNode.classList.add("done"); defNode.classList.add("done");
+    termNode.innerHTML="✅ "+termNode.innerHTML; mSelTerm=null; mDone++;
+    if(mDone===mPairs.length) finishMatch();
+  } else {
+    mMisses++; $("#mMiss").textContent=mMisses;
+    defNode.classList.add("flash-bad"); termNode.classList.add("flash-bad");
+    setTimeout(()=>{ defNode.classList.remove("flash-bad"); termNode.classList.remove("flash-bad"); },350);
+    toast("Not a match — try again");
+  }
+}
+function finishMatch(){
+  if(store.bestMatch===null || mMisses<store.bestMatch){ store.bestMatch=mMisses; saveStore(); }
+  $("#mResult").innerHTML=`<div class="feedback show ok center" style="margin-top:16px">
+    🎉 <b>All matched!</b> You finished with <b>${mMisses}</b> miss${mMisses===1?'':'es'}. ${mMisses===0?"Perfect round! 🏆":""}
+    <div style="margin-top:10px"><button class="btn" onclick="newMatch()">Play another set ↻</button></div>
+  </div>`;
+}
+function newMatch(){ buildMatch(); renderMatch(); }
+
+/* ============================================================
+   TIMELINE
+   ============================================================ */
+let tlPool=[], tlOrder=[], tlChecked=false;
+function buildTimeline(){
+  tlPool = shuffle(TIMELINE.map((e,i)=>({...e, id:i})));
+  tlOrder=[]; tlChecked=false;
+}
+function renderTimeline(){
+  if(!tlPool.length && !tlOrder.length) buildTimeline();
+  $("#view-timeline").innerHTML=`
+  <div class="card">
+    <div class="row"><h2 style="margin:0">📜 Timeline Challenge</h2><span class="spacer"></span>
+      <button class="btn ghost sm" onclick="newTimeline()">↻ Restart</button></div>
+    <p class="muted" style="margin:6px 0 12px">Click the events in order from <b>earliest → latest</b>. Build the road to the Civil War!</p>
+    <div class="grid cols2">
+      <div>
+        <h4 style="color:var(--muted);text-transform:uppercase;font-size:13px;letter-spacing:.5px">Events to place</h4>
+        <div class="tl-pool" id="tlPool">
+          ${tlPool.length? tlPool.map(e=>`<div class="tl-item" onclick="placeEvent(${e.id})">${esc(e.label)}</div>`).join("")
+            : `<div class="tl-empty">All placed! Hit "Check order" below. 👇</div>`}
+        </div>
+      </div>
+      <div>
+        <h4 style="color:var(--muted);text-transform:uppercase;font-size:13px;letter-spacing:.5px">Your timeline</h4>
+        <div class="tl-line" id="tlLine">
+          ${tlOrder.length? tlOrder.map((e,idx)=>tlLineItem(e,idx)).join("")
+            : `<div class="tl-empty">Click events on the left to add them here…</div>`}
+        </div>
+      </div>
+    </div>
+    <div class="row" style="margin-top:16px">
+      <button class="btn ghost sm" onclick="undoTimeline()" ${tlOrder.length?'':'disabled'}>⟲ Undo last</button>
+      <span class="spacer"></span>
+      <button class="btn" onclick="checkTimeline()" ${tlPool.length?'disabled':''}>Check order ✓</button>
+    </div>
+    <div id="tlResult"></div>
+  </div>`;
+}
+function tlLineItem(e,idx){
+  let cls="tl-item";
+  if(tlChecked){ cls += (e.year===TIMELINE_SORTED[idx].year)?" right":" wrong"; }
+  return `<div class="${cls}"><span class="seq">${idx+1}</span><span>${esc(e.label)}</span>${tlChecked?`<span class="yr">${Math.floor(e.year)}</span>`:""}</div>`;
+}
+const TIMELINE_SORTED = TIMELINE.slice().sort((a,b)=>a.year-b.year);
+function placeEvent(id){
+  const idx=tlPool.findIndex(e=>e.id===id); if(idx<0)return;
+  tlOrder.push(tlPool[idx]); tlPool.splice(idx,1); renderTimeline();
+}
+function undoTimeline(){
+  if(!tlOrder.length)return;
+  const e=tlOrder.pop(); tlPool.unshift(e); tlChecked=false; renderTimeline();
+}
+function checkTimeline(){
+  tlChecked=true;
+  let right=0; tlOrder.forEach((e,idx)=>{ if(e.year===TIMELINE_SORTED[idx].year) right++; });
+  const pct=Math.round(right/TIMELINE.length*100);
+  if(pct>store.bestTimeline){ store.bestTimeline=pct; saveStore(); }
+  renderTimeline();
+  $("#tlResult").innerHTML=`<div class="feedback show ${pct===100?'ok':'no'}" style="margin-top:14px">
+    ${pct===100?"🏆 <b>Perfect!</b> You ordered every event correctly!":`You placed <b>${right}/${TIMELINE.length}</b> in the right spot (${pct}%). Green = correct spot, red = move it. Try again!`}
+    <div style="margin-top:8px" class="muted">Correct order: ${TIMELINE_SORTED.map(e=>Math.floor(e.year)+" "+e.label).join(" → ")}</div>
+  </div>`;
+}
+function newTimeline(){ buildTimeline(); renderTimeline(); }
+
+/* ============================================================
+   WRITE (short / extended response)
+   ============================================================ */
+function renderWrite(){
+  $("#view-write").innerHTML=`
+  <div class="card">
+    <h2 style="margin-top:0">✍️ Short &amp; Extended Response</h2>
+    <p class="muted" style="margin-top:-4px">These mirror the short-answer and extended-response parts of the test. Type your answer, then reveal the model answer to check yourself. ⭐ For the last two, use <b>your own</b> person/topic from class.</p>
+  </div>
+  ${SHORT.map((s,i)=>`
+    <div class="card wa">
+      <span class="pill ${s.tag===U11?'u11':''}" style="${s.tag===U11?'background:#f3dcc4;color:#7a4a12':''}">${s.tag===U10?'Unit 10':'Unit 11'}</span>
+      <p class="wa-q" style="margin-top:8px">${esc(s.q)}</p>
+      <textarea id="wa${i}" placeholder="Write your answer here… (try to hit every part of the question)"></textarea>
+      <div class="row" style="margin-top:10px">
+        <button class="btn alt sm" onclick="toggleModel(${i})" id="wabtn${i}">💡 Show model answer</button>
+      </div>
+      <div class="model" id="model${i}">
+        <h4>Model answer — hit these points</h4>
+        <ul>${s.pts.map(p=>`<li>${esc(p)}</li>`).join("")}</ul>
+      </div>
+    </div>`).join("")}
+  `;
+}
+function toggleModel(i){
+  const m=$("#model"+i), b=$("#wabtn"+i);
+  const show=!m.classList.contains("show");
+  m.classList.toggle("show",show);
+  b.textContent = show? "🙈 Hide model answer" : "💡 Show model answer";
+}
+
+/* ============================================================
+   NOTES (study sheet)
+   ============================================================ */
+function renderNotes(){
+  const u10=TERMS.filter(t=>t.unit===U10), u11=TERMS.filter(t=>t.unit===U11);
+  $("#view-notes").innerHTML=`
+  <div class="card">
+    <h2 style="margin-top:0">📖 Study Sheet</h2>
+    <p class="muted" style="margin-top:-4px">Everything from your guide in one place. Click a unit to expand. Read it through, then test yourself with the other tabs.</p>
+  </div>
+  <details class="note" open>
+    <summary>📕 ${U10}</summary>
+    <div class="body">
+      <p class="muted" style="margin-top:0">For each event: know <b>what</b> it was, <b>why</b> it mattered, and <b>how</b> it raised North–South tensions.</p>
+      ${u10.map(termBlock).join("")}
+    </div>
+  </details>
+  <details class="note" open>
+    <summary>📘 ${U11}</summary>
+    <div class="body">
+      ${u11.map(termBlock).join("")}
+    </div>
+  </details>
+  <details class="note">
+    <summary>🧭 Quick-reference cheat facts</summary>
+    <div class="body">
+      <div class="term-block"><span class="t">Union capital:</span> Washington, D.C. &nbsp;·&nbsp; <span class="t">Confederate capital:</span> Richmond, VA</div>
+      <div class="term-block"><span class="t">Union leader:</span> Pres. Abraham Lincoln &nbsp;·&nbsp; <span class="t">Confederate leader:</span> Pres. Jefferson Davis</div>
+      <div class="term-block"><span class="t">Border states:</span> Missouri, Kentucky, Maryland, Delaware</div>
+      <div class="term-block"><span class="t">Turning point (1863):</span> Gettysburg + Vicksburg (same week)</div>
+      <div class="term-block"><span class="t">War starts:</span> Fort Sumter (April 1861) &nbsp;·&nbsp; <span class="t">War ends:</span> Appomattox (April 1865)</div>
+      <div class="term-block"><span class="t">Antietam → Emancipation Proclamation:</span> the Union win let Lincoln issue it from strength</div>
+      <div class="term-block"><span class="t">Black regiments:</span> 54th Massachusetts (Fort Wagner) &amp; 29th Connecticut (entered Richmond)</div>
+    </div>
+  </details>`;
+}
+function termBlock(t){
+  return `<div class="term-block">
+    <div class="t">${esc(t.term)}</div>
+    <div>${esc(t.def)}</div>
+    ${t.why?`<div class="w">💡 ${esc(t.why)}</div>`:""}
+  </div>`;
+}
+
+/* ============================================================
+   KEYBOARD (flashcards)
+   ============================================================ */
+document.addEventListener("keydown",e=>{
+  if(!$("#view-flash").classList.contains("active"))return;
+  if(e.target.tagName==="SELECT"||e.target.tagName==="TEXTAREA")return;
+  if(e.code==="Space"){ e.preventDefault(); flipCard(); }
+  else if(e.code==="ArrowRight"){ nextCard(); }
+  else if(e.code==="ArrowLeft"){ prevCard(); }
+});
+
+/* ============================================================
+   COUNTDOWN (friendly, no external time needed beyond device)
+   ============================================================ */
+(function(){
+  try{
+    const test=new Date(2026,5,9); // June 9, 2026
+    const now=new Date(); now.setHours(0,0,0,0);
+    const days=Math.round((test-now)/86400000);
+    const el=$("#countdown");
+    if(days>1) el.textContent=`June 9th (${days} days)`;
+    else if(days===1) el.textContent=`June 9th — tomorrow!`;
+    else if(days===0) el.textContent=`June 9th — TODAY! 💪`;
+    else el.textContent=`June 9th`;
+  }catch(e){}
+})();
+
+/* boot */
+renderHome();
+</script>
+</body>
+</html>
